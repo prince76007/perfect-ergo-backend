@@ -12,7 +12,7 @@ public class Employee {
 	private String email;
 	private String address;
 	private String phone;
-	private byte[] photo;
+	private String photo;
 	/**
 	 * @return the id
 	 */
@@ -76,13 +76,13 @@ public class Employee {
 	/**
 	 * @return the photo
 	 */
-	public byte[] getPhoto() {
-		return photo;
+	public String getPhoto() {
+		return "/upload-photo/"+photo;
 	}
 	/**
 	 * @param photo the photo to set
 	 */
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 }

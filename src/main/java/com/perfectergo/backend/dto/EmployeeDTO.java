@@ -9,7 +9,7 @@ public class EmployeeDTO extends BaseDTO{
 	private String name;
 	private String address;
 	private String email;
-	private byte[] photo;
+	private String photo;
 	private String phone;
 	
 	/**
@@ -78,13 +78,13 @@ public class EmployeeDTO extends BaseDTO{
 	/**
 	 * @return the photo
 	 */
-	public byte[] getPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
 	/**
 	 * @param photo the photo to set
 	 */
-	public void setPhoto(byte[] photo) {
+	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
 	/**

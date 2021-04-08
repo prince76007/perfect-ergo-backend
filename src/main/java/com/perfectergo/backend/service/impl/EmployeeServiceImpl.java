@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.perfectergo.backend.dto.BaseDTO;
@@ -14,6 +15,7 @@ import com.perfectergo.backend.dto.EmployeeDTO;
 import com.perfectergo.backend.model.Employee;
 import com.perfectergo.backend.repository.EmployeeRepository;
 import com.perfectergo.backend.service.EmployeeService;
+import com.perfectergo.backend.utils.FileUploadUtil;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -55,7 +57,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		 employee.setEmail(email.trim());
 		 employee.setName(name.trim());
 		 employee.setPhone(phone.trim());
-		 employee.setPhoto(photo.getBytes());
+		 String photoName= StringUtils.cleanPath(photo.getOriginalFilename());
+		 FileUploadUtil.saveFile(photoName, photo);
+		 employee.setPhoto(photoName);
 		 employeeRepository.save(employee);
 		 
 		 baseDTO.setMessage("added successfully");
